@@ -10,7 +10,10 @@ pipeline {
         }
 		stage('DOCKER') {
             steps {
-                sh '''docker build -t arvindpathare/springio
+                sh '''
+				cd $WORKSPACE
+				git clone https://github.com/arvindpathare/devops_Loylogic_terraform.git
+				docker build -t arvindpathare/springio
 				docker push arvindpathare/springio'''
             }
         }
